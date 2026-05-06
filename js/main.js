@@ -82,6 +82,21 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+  const form = document.querySelector(".contact-form");
+
+  if (form) {
+    form.addEventListener("submit", (event) => {
+      const message = document.querySelector("#message");
+
+      if (message.value.trim().length < 20) {
+        event.preventDefault();
+        alert("Please provide a more detailed message.");
+      }
+  });
+}
+
+
 });
 
 window.addEventListener("scroll", updateHeaderState);
+

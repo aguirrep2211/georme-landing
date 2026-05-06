@@ -222,12 +222,20 @@
         
         <div class="form-row">
           <label for="name" data-i18n="form.name">Nombre</label>
-          <input id="name" name="name" type="text" required />
+          <input id="name" 
+                 name="name" 
+                 type="text"
+                 minlength="2"
+                 maxlength="80" 
+                 required />
         </div>
 
         <div class="form-row">
           <label for="email" data-i18n="form.email">Email</label>
-          <input id="email" name="email" type="email" required />
+          <input id="email" name="email" 
+                 type="email" required 
+                 maxlength="120"
+                 required />
         </div>
 
         <div class="form-row">
@@ -257,7 +265,12 @@
 
         <div class="form-row">
           <label for="message" data-i18n="form.message">Mensaje</label>
-          <textarea id="message" name="message" rows="6" required></textarea>
+          <textarea id="message" 
+                    name="message" 
+                    rows="6" 
+                    minlength="20"
+                    maxlength="2000"
+                    required></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary" data-i18n="form.submit">
