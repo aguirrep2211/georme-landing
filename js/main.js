@@ -3,7 +3,11 @@ const header = document.querySelector(".site-header");
 function updateHeaderState() {
   if (!header) return;
 
-  if (window.scrollY > 80) {
+  const scrollPosition =
+    window.pageYOffset ||
+    document.documentElement.scrollTop;
+
+  if (scrollPosition > 40) {
     header.classList.remove("expanded");
     header.classList.add("compact");
   } else {
@@ -99,4 +103,5 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("scroll", updateHeaderState);
+window.addEventListener("touchmove", updateHeaderState);
 
