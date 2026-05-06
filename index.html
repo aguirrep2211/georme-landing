@@ -211,7 +211,15 @@
         </p>
       </div>
 
-      <form class="contact-form" action="#" method="POST">
+      <form class="contact-form" 
+                  action="https://formspree.io/f/mrejkwwr" 
+                  method="POST"  
+      >
+
+        <input type="hidden" name="_subject" value="Nuevo contacto desde GeoRMe" />
+        <input type="hidden" name="_language" value="auto" />
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        
         <div class="form-row">
           <label for="name" data-i18n="form.name">Nombre</label>
           <input id="name" name="name" type="text" required />
