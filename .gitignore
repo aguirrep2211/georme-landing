@@ -1,0 +1,17 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Entornos
+node_modules/
+dist/
+build/
+
+# Archivos temporales
+*.tmp
+*.log
+
+# Vídeos originales pesados
+assets/videos/*uhd*.mp4
+assets/videos/*UHD*.mp4
+assets/videos/*original*.mp4
