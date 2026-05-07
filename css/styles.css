@@ -739,6 +739,8 @@ textarea {
     background: rgba(18, 35, 25, 0.68);
   }
 
+}
+
 @media (max-width: 480px) {
   .navbar {
     padding: 0 18px;
