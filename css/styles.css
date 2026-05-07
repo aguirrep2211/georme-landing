@@ -617,8 +617,8 @@ textarea {
     gap: 32px;
   }
 }
-
 @media (max-width: 720px) {
+
   .menu-toggle {
     display: block;
     color: var(--color-text);
@@ -655,6 +655,22 @@ textarea {
     color: var(--color-text);
   }
 
+  /* HEADER VIDEO */
+
+  .header-video-wrapper video {
+    display: none;
+  }
+
+  .header-video-wrapper {
+    background-image: url("/assets/images/header-poster.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    contain: layout paint;
+  }
+
+  /* HERO */
+
   .hero {
     min-height: auto;
     padding: 64px 18px 56px;
@@ -672,6 +688,8 @@ textarea {
     width: 100%;
   }
 
+  /* SECTIONS */
+
   .section {
     padding: 72px 18px;
   }
@@ -681,12 +699,36 @@ textarea {
     padding-right: 0;
   }
 
+  /* CONTACT */
+
   .contact-form {
     padding: 24px;
   }
 
+  /* SERVICE VIDEOS */
+
+  .service-video {
+    display: none;
+  }
+
   .service-panel {
     min-height: 340px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    contain: layout paint;
+  }
+
+  .service-panel-photovoltaic {
+    background-image: url("/assets/images/energia-poster.jpg");
+  }
+
+  .service-panel-industrial {
+    background-image: url("/assets/images/industrial-poster.jpg");
+  }
+
+  .service-panel-research {
+    background-image: url("/assets/images/research-poster.jpg");
   }
 
   .service-panel-content {
@@ -696,7 +738,6 @@ textarea {
   .service-panel-overlay {
     background: rgba(18, 35, 25, 0.68);
   }
-}
 
 @media (max-width: 480px) {
   .navbar {
