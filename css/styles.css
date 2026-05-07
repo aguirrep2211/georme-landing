@@ -729,3 +729,49 @@ textarea {
     font-size: 0.7rem;
   }
 }
+/* estilos legal */
+.legal-page {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.legal-content {
+  max-width: 920px;
+  margin: 0 auto;
+  color: var(--color-text);
+}
+
+.legal-content h2 {
+  margin-top: 48px;
+  margin-bottom: 16px;
+  font-size: 1.35rem;
+}
+
+.legal-content p,
+.legal-content li {
+  color: var(--color-muted);
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.legal-content ul {
+  padding-left: 20px;
+}
+
+.footer-links {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--color-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: var(--color-accent);
+}

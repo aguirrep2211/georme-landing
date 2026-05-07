@@ -1,0 +1,4 @@
+Contact: mailto:pablo_iglesias@georme.com
+Preferred-Languages: es, ca, en, fr, pt
+Canonical: https://georme.com/.well-known/security.txt
+Policy: https://georme.com/privacy.html
