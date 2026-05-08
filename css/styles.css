@@ -112,6 +112,7 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .header-overlay {
@@ -223,7 +224,7 @@ main {
   transform: translateY(-50%);
 
   color: #0f1f17;
-  text-align: right;;
+  text-align: right;
 }
 
 .site-header.compact .logo-main {
@@ -418,6 +419,7 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .service-panel-overlay {
@@ -605,6 +607,54 @@ textarea {
   border-top: 1px solid var(--color-border);
 }
 
+.footer-links {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--color-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: var(--color-accent);
+}
+
+/* Páginas legales */
+
+.legal-page {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.legal-content {
+  max-width: 920px;
+  margin: 0 auto;
+  color: var(--color-text);
+}
+
+.legal-content h2 {
+  margin-top: 48px;
+  margin-bottom: 16px;
+  font-size: 1.35rem;
+}
+
+.legal-content p,
+.legal-content li {
+  color: var(--color-muted);
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.legal-content ul {
+  padding-left: 20px;
+}
+
 /* Responsive */
 
 @media (max-width: 900px) {
@@ -617,8 +667,8 @@ textarea {
     gap: 32px;
   }
 }
-@media (max-width: 720px) {
 
+@media (max-width: 720px) {
   .menu-toggle {
     display: block;
     color: var(--color-text);
@@ -655,22 +705,6 @@ textarea {
     color: var(--color-text);
   }
 
-  /* HEADER VIDEO */
-
-  .header-video-wrapper video {
-    display: none;
-  }
-
-  .header-video-wrapper {
-    background-image: url("/assets/images/header-poster.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    contain: layout paint;
-  }
-
-  /* HERO */
-
   .hero {
     min-height: auto;
     padding: 64px 18px 56px;
@@ -688,8 +722,6 @@ textarea {
     width: 100%;
   }
 
-  /* SECTIONS */
-
   .section {
     padding: 72px 18px;
   }
@@ -699,36 +731,12 @@ textarea {
     padding-right: 0;
   }
 
-  /* CONTACT */
-
   .contact-form {
     padding: 24px;
   }
 
-  /* SERVICE VIDEOS */
-
-  .service-video {
-    display: none;
-  }
-
   .service-panel {
     min-height: 340px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    contain: layout paint;
-  }
-
-  .service-panel-photovoltaic {
-    background-image: url("/assets/images/energia-poster.jpg");
-  }
-
-  .service-panel-industrial {
-    background-image: url("/assets/images/industrial-poster.jpg");
-  }
-
-  .service-panel-research {
-    background-image: url("/assets/images/research-poster.jpg");
   }
 
   .service-panel-content {
@@ -738,7 +746,6 @@ textarea {
   .service-panel-overlay {
     background: rgba(18, 35, 25, 0.68);
   }
-
 }
 
 @media (max-width: 480px) {
@@ -771,50 +778,4 @@ textarea {
     padding: 5px 7px;
     font-size: 0.7rem;
   }
-}
-/* estilos legal */
-.legal-page {
-  min-height: 100vh;
-  background: var(--color-bg);
-}
-
-.legal-content {
-  max-width: 920px;
-  margin: 0 auto;
-  color: var(--color-text);
-}
-
-.legal-content h2 {
-  margin-top: 48px;
-  margin-bottom: 16px;
-  font-size: 1.35rem;
-}
-
-.legal-content p,
-.legal-content li {
-  color: var(--color-muted);
-  line-height: 1.8;
-  margin-bottom: 18px;
-}
-
-.legal-content ul {
-  padding-left: 20px;
-}
-
-.footer-links {
-  margin-top: 12px;
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.footer-links a {
-  color: var(--color-muted);
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.footer-links a:hover {
-  color: var(--color-accent);
 }
