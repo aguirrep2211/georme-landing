@@ -64,10 +64,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const initialLang = detectInitialLanguage();
   setLanguage(initialLang);
 
+  const cookieBanner = document.querySelector("#cookieBanner");
+  const acceptCookiesButton = document.querySelector("#acceptCookies");
+
   document.querySelectorAll("[data-lang]").forEach((button) => {
     button.addEventListener("click", () => {
       setLanguage(button.dataset.lang);
     });
+
+  if (cookieBanner && acceptCookiesButton) {
+  const cookiesAccepted = localStorage.getItem("georme-cookies-accepted");
+
+  if (!cookiesAccepted) {
+    cookieBanner.hidden = false;
+  }
+
+  acceptCookiesButton.addEventListener("click", () => {
+    localStorage.setItem("georme-cookies-accepted", "true");
+    cookieBanner.hidden = true;
+  });
+}
+
   });
 
   const menuToggle = document.querySelector(".menu-toggle");
