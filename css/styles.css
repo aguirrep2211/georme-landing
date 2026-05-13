@@ -545,6 +545,99 @@ main {
 
 /* Contacto */
 
+.contact-layout {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.contact-card {
+  padding: 32px;
+  border-radius: var(--radius);
+  background: #101811;
+  border: 1px solid rgba(217, 217, 217, 0.12);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.contact-card h3 {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  color: #ffffff;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.15;
+}
+
+.contact-card p:not(.eyebrow) {
+  margin-bottom: 28px;
+  color: #d9d9d9;
+  line-height: 1.7;
+}
+
+.linkedin-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  background: #2e5e4e;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.linkedin-button:hover {
+  background: var(--color-accent-dark);
+  opacity: 0.9;
+}
+
+.contact-methods {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-method {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  color: #d9d9d9;
+  line-height: 1.35;
+}
+
+.contact-method i {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(46, 94, 78, 0.22);
+  color: #ffffff;
+}
+
+.contact-method strong {
+  display: block;
+  color: #ffffff;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact-method:hover {
+  color: #ffffff;
+}
+
 .contact-section {
   background:
     radial-gradient(circle at top, rgba(31, 77, 54, 0.12), transparent 35%),
@@ -552,8 +645,6 @@ main {
 }
 
 .contact-form {
-  max-width: 720px;
-  margin: 0 auto;
   padding: 32px;
   border-radius: var(--radius);
   background: var(--color-surface-solid);
@@ -625,6 +716,32 @@ textarea {
   color: var(--color-accent);
 }
 
+.social-links {
+  margin-top: 18px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-links a {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  color: #d9d9d9;
+  font-size: 1.4rem;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #2e5e4e;
+  transform: translateY(-2px);
+}
+
 /* Páginas legales */
 
 .legal-page {
@@ -659,7 +776,8 @@ textarea {
 
 @media (max-width: 900px) {
   .two-columns,
-  .about-layout {
+  .about-layout,
+  .contact-layout {
     grid-template-columns: 1fr;
   }
 

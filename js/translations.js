@@ -49,10 +49,18 @@ const translations = {
       item4: "Procesado fotogramétrico y geoespacial.",
       item5: "Entrega de resultados claros y reutilizables."
     },
+    linkedin: {
+      eyebrow: "LinkedIn",
+      title: "Conecta con GeoRMe",
+      text: "Sigue a GeoRMe en LinkedIn para ver novedades sobre inspección UAS, teledetección y proyectos geoespaciales.",
+      cta: "Seguir en LinkedIn"
+    },
     contact: {
       eyebrow: "Contacto",
       title: "Cuéntame qué necesitas inspeccionar o medir",
-      text: "Describe brevemente el proyecto, localización aproximada y tipo de dato que necesitas obtener."
+      text: "Describe brevemente el proyecto, localización aproximada y tipo de dato que necesitas obtener.",
+      emailLabel: "Email",
+      phoneLabel: "Teléfono"
     },
     form: {
       name: "Nombre",
@@ -122,10 +130,18 @@ const translations = {
       item4: "Processament fotogramètric i geoespacial.",
       item5: "Lliurament de resultats clars i reutilitzables."
     },
+    linkedin: {
+      eyebrow: "LinkedIn",
+      title: "Connecta amb GeoRMe",
+      text: "Segueix GeoRMe a LinkedIn per veure novetats sobre inspecció UAS, teledetecció i projectes geoespacials.",
+      cta: "Seguir a LinkedIn"
+    },
     contact: {
       eyebrow: "Contacte",
       title: "Explica’m què necessites inspeccionar o mesurar",
-      text: "Descriu breument el projecte, la localització aproximada i el tipus de dada que necessites obtenir."
+      text: "Descriu breument el projecte, la localització aproximada i el tipus de dada que necessites obtenir.",
+      emailLabel: "Email",
+      phoneLabel: "Telèfon"
     },
     form: {
       name: "Nom",
@@ -195,10 +211,18 @@ const translations = {
       item4: "Photogrammetric and geospatial processing.",
       item5: "Delivery of clear and reusable results."
     },
+    linkedin: {
+      eyebrow: "LinkedIn",
+      title: "Connect with GeoRMe",
+      text: "Follow GeoRMe on LinkedIn for updates on UAV inspection, remote sensing and geospatial projects.",
+      cta: "Follow on LinkedIn"
+    },
     contact: {
       eyebrow: "Contact",
       title: "Tell me what you need to inspect or measure",
-      text: "Briefly describe the project, approximate location and the type of data you need to obtain."
+      text: "Briefly describe the project, approximate location and the type of data you need to obtain.",
+      emailLabel: "Email",
+      phoneLabel: "Phone"
     },
     form: {
       name: "Name",
@@ -268,10 +292,18 @@ const translations = {
       item4: "Traitement photogrammétrique et géospatial.",
       item5: "Livraison de résultats clairs et réutilisables."
     },
+    linkedin: {
+      eyebrow: "LinkedIn",
+      title: "Connectez-vous avec GeoRMe",
+      text: "Suivez GeoRMe sur LinkedIn pour découvrir les actualités liées à l’inspection UAS, à la télédétection et aux projets géospatiaux.",
+      cta: "Suivre sur LinkedIn"
+    },
     contact: {
       eyebrow: "Contact",
       title: "Expliquez-moi ce que vous devez inspecter ou mesurer",
-      text: "Décrivez brièvement le projet, la localisation approximative et le type de données que vous souhaitez obtenir."
+      text: "Décrivez brièvement le projet, la localisation approximative et le type de données que vous souhaitez obtenir.",
+      emailLabel: "Email",
+      phoneLabel: "Téléphone"
     },
     form: {
       name: "Nom",
@@ -341,10 +373,18 @@ const translations = {
       item4: "Processamento fotogramétrico e geoespacial.",
       item5: "Entrega de resultados claros e reutilizáveis."
     },
+    linkedin: {
+      eyebrow: "LinkedIn",
+      title: "Ligue-se à GeoRMe",
+      text: "Siga a GeoRMe no LinkedIn para acompanhar novidades sobre inspeção UAS, deteção remota e projetos geoespaciais.",
+      cta: "Seguir no LinkedIn"
+    },
     contact: {
       eyebrow: "Contacto",
       title: "Diga-me o que precisa de inspecionar ou medir",
-      text: "Descreva brevemente o projeto, a localização aproximada e o tipo de dados que precisa de obter."
+      text: "Descreva brevemente o projeto, a localização aproximada e o tipo de dados que precisa de obter.",
+      emailLabel: "Email",
+      phoneLabel: "Telefone"
     },
     form: {
       name: "Nome",

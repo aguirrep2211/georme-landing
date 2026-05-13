@@ -37,8 +37,8 @@
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://georme.com/">
-  <meta property="og:title" content="GeoRMe | Geoscience · Remote · Metrics">
-  <meta property="og:description" content="Servicios profesionales con drones, sensores remotos y datos geoespaciales para energía, industria, investigación y medio natural.">
+  <meta property="og:title" content="GeoRMe">
+  <meta property="og:description" content="Technical UAV inspection, photogrammetry and geospatial analysis services.">
   <meta property="og:image" content="https://georme.com/assets/images/og-georme.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -46,13 +46,17 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://georme.com/">
-  <meta name="twitter:title" content="GeoRMe | Geoscience · Remote · Metrics">
-  <meta name="twitter:description" content="Servicios profesionales con drones, sensores remotos y datos geoespaciales para energía, industria, investigación y medio natural.">
+  <meta name="twitter:title" content="GeoRMe">
+  <meta name="twitter:description" content="Technical UAV inspection, photogrammetry and geospatial analysis services.">
   <meta name="twitter:image" content="https://georme.com/assets/images/og-georme.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
 
   <link rel="stylesheet" href="/css/reset.css?v=2" />
   <link rel="stylesheet" href="/css/styles.css?v=2" />
@@ -309,80 +313,120 @@
         </p>
       </div>
 
-      <form
-        class="contact-form"
-        action="https://formspree.io/f/mrejkwwr"
-        method="POST"
-      >
-        <input type="hidden" name="_subject" value="Nuevo contacto desde GeoRMe" />
-        <input type="hidden" name="_language" value="auto" />
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+      <div class="contact-layout">
+        <aside class="contact-card" aria-label="Datos de contacto">
+          <div>
+            <p class="eyebrow" data-i18n="linkedin.eyebrow">LinkedIn</p>
+            <h3 data-i18n="linkedin.title">Connect with GeoRMe</h3>
+            <p data-i18n="linkedin.text">
+              Follow GeoRMe on LinkedIn for updates on UAV inspection, remote sensing
+              and geospatial projects.
+            </p>
+            <a
+              href="https://www.linkedin.com/company/georme"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="linkedin-button"
+              data-i18n="linkedin.cta"
+            >
+              Follow on LinkedIn
+            </a>
+          </div>
 
-        <div class="form-row">
-          <label for="name" data-i18n="form.name">Nombre</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            minlength="2"
-            maxlength="80"
-            required
-          />
-        </div>
+          <div class="contact-methods">
+            <a href="mailto:info@georme.com" class="contact-method">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              <span>
+                <strong data-i18n="contact.emailLabel">Email</strong>
+                info@georme.com
+              </span>
+            </a>
 
-        <div class="form-row">
-          <label for="email" data-i18n="form.email">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            maxlength="120"
-            required
-          />
-        </div>
+            <a href="tel:+34614524083" class="contact-method">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <span>
+                <strong data-i18n="contact.phoneLabel">Teléfono</strong>
+                +34 614 52 40 83
+              </span>
+            </a>
+          </div>
+        </aside>
 
-        <div class="form-row">
-          <label for="service" data-i18n="form.service">Servicio de interés</label>
-          <select id="service" name="service" required>
-            <option value="" data-i18n="form.servicePlaceholder">
-              Selecciona una opción
-            </option>
-            <option value="energia" data-i18n="form.serviceEnergy">
-              Energía
-            </option>
-            <option value="industrial" data-i18n="form.serviceIndustrial">
-              Inspección industrial e infraestructuras
-            </option>
-            <option value="investigacion" data-i18n="form.serviceResearch">
-              Investigación / medio natural / medio urbano
-            </option>
-            <option value="otro" data-i18n="form.serviceOther">
-              Otro
-            </option>
-          </select>
-        </div>
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/mrejkwwr"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="Nuevo contacto desde GeoRMe" />
+          <input type="hidden" name="_language" value="auto" />
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
-        <div class="form-row">
-          <label for="message" data-i18n="form.message">Mensaje</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="6"
-            minlength="20"
-            maxlength="2000"
-            required
-          ></textarea>
-        </div>
+          <div class="form-row">
+            <label for="name" data-i18n="form.name">Nombre</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              minlength="2"
+              maxlength="80"
+              required
+            />
+          </div>
 
-        <button type="submit" class="btn btn-primary" data-i18n="form.submit">
-          Enviar consulta
-        </button>
+          <div class="form-row">
+            <label for="email" data-i18n="form.email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              maxlength="120"
+              required
+            />
+          </div>
 
-        <p class="form-note" data-i18n="form.note">
-          Al enviar este formulario aceptas que tus datos sean utilizados únicamente
-          para responder a tu consulta.
-        </p>
-      </form>
+          <div class="form-row">
+            <label for="service" data-i18n="form.service">Servicio de interés</label>
+            <select id="service" name="service" required>
+              <option value="" data-i18n="form.servicePlaceholder">
+                Selecciona una opción
+              </option>
+              <option value="energia" data-i18n="form.serviceEnergy">
+                Energía
+              </option>
+              <option value="industrial" data-i18n="form.serviceIndustrial">
+                Inspección industrial e infraestructuras
+              </option>
+              <option value="investigacion" data-i18n="form.serviceResearch">
+                Investigación / medio natural / medio urbano
+              </option>
+              <option value="otro" data-i18n="form.serviceOther">
+                Otro
+              </option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="message" data-i18n="form.message">Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              minlength="20"
+              maxlength="2000"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" data-i18n="form.submit">
+            Enviar consulta
+          </button>
+
+          <p class="form-note" data-i18n="form.note">
+            Al enviar este formulario aceptas que tus datos sean utilizados únicamente
+            para responder a tu consulta.
+          </p>
+        </form>
+      </div>
     </section>
   </main>
 
@@ -395,6 +439,26 @@
       <a href="/legal.html">Aviso legal</a>
       <a href="/privacy.html">Privacidad</a>
       <a href="/cookies.html">Cookies</a>
+    </div>
+
+    <div class="social-links" aria-label="LinkedIn">
+      <a
+        href="https://www.linkedin.com/company/georme"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GeoRMe LinkedIn"
+      >
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+
+      <a
+        href="https://es.linkedin.com/in/pablo-iglesias-aguirre-8347a726"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Pablo Iglesias Aguirre LinkedIn"
+      >
+        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+      </a>
     </div>
   </footer>
 
