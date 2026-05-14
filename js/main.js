@@ -106,19 +106,74 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".contact-form");
 
   if (form) {
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
       const message = document.querySelector("#message");
 
       if (message.value.trim().length < 20) {
-        event.preventDefault();
         alert("Please provide a more detailed message.");
+        return;
       }
-  });
-}
+
+      const formData = new FormData(form);
+      const payload = {
+        name: formData.get("name") || "",
+        company: formData.get("company") || "",
+        email: formData.get("email") || "",
+        phone: formData.get("phone") || "",
+        service: formData.get("service") || "",
+        message: formData.get("message") || "",
+        source: "web_georme"
+      };
+
+      // Future Turnstile token can be added to formData and payload here.
+      let emailResponse;
+
+      try {
+        emailResponse = await fetch(form.action, {
+          method: form.method,
+          headers: {
+            Accept: "application/json"
+          },
+          body: formData
+        });
+      } catch (error) {
+        alert("There was a problem sending your message. Please try again.");
+        return;
+      }
+
+      if (!emailResponse.ok) {
+        alert("There was a problem sending your message. Please try again.");
+        return;
+      }
+
+      const sendLeadToOdoo = async () => {
+        try {
+          const odooResponse = await fetch("https://api.georme.com/contact", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (!odooResponse.ok) {
+            console.warn("Odoo contact API request failed.", odooResponse.status);
+          }
+        } catch (error) {
+          console.warn("Odoo contact API request failed.", error);
+        }
+      };
+
+      form.reset();
+      void sendLeadToOdoo();
+      alert("Message sent successfully.");
+    });
+  }
 
 
 });
 
 window.addEventListener("scroll", updateHeaderState);
 window.addEventListener("touchmove", updateHeaderState);
-
