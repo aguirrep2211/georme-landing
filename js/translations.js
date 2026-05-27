@@ -58,9 +58,7 @@ const translations = {
     contact: {
       eyebrow: "Contacto",
       title: "Cuéntame qué necesitas inspeccionar o medir",
-      text: "Describe brevemente el proyecto, localización aproximada y tipo de dato que necesitas obtener.",
-      emailLabel: "Email",
-      phoneLabel: "Teléfono"
+      text: "Describe brevemente el proyecto, localización aproximada y tipo de dato que necesitas obtener."
     },
     form: {
       name: "Nombre",
@@ -139,9 +137,7 @@ const translations = {
     contact: {
       eyebrow: "Contacte",
       title: "Explica’m què necessites inspeccionar o mesurar",
-      text: "Descriu breument el projecte, la localització aproximada i el tipus de dada que necessites obtenir.",
-      emailLabel: "Email",
-      phoneLabel: "Telèfon"
+      text: "Descriu breument el projecte, la localització aproximada i el tipus de dada que necessites obtenir."
     },
     form: {
       name: "Nom",
@@ -220,9 +216,7 @@ const translations = {
     contact: {
       eyebrow: "Contact",
       title: "Tell me what you need to inspect or measure",
-      text: "Briefly describe the project, approximate location and the type of data you need to obtain.",
-      emailLabel: "Email",
-      phoneLabel: "Phone"
+      text: "Briefly describe the project, approximate location and the type of data you need to obtain."
     },
     form: {
       name: "Name",
@@ -301,9 +295,7 @@ const translations = {
     contact: {
       eyebrow: "Contact",
       title: "Expliquez-moi ce que vous devez inspecter ou mesurer",
-      text: "Décrivez brièvement le projet, la localisation approximative et le type de données que vous souhaitez obtenir.",
-      emailLabel: "Email",
-      phoneLabel: "Téléphone"
+      text: "Décrivez brièvement le projet, la localisation approximative et le type de données que vous souhaitez obtenir."
     },
     form: {
       name: "Nom",
@@ -382,9 +374,7 @@ const translations = {
     contact: {
       eyebrow: "Contacto",
       title: "Diga-me o que precisa de inspecionar ou medir",
-      text: "Descreva brevemente o projeto, a localização aproximada e o tipo de dados que precisa de obter.",
-      emailLabel: "Email",
-      phoneLabel: "Telefone"
+      text: "Descreva brevemente o projeto, a localização aproximada e o tipo de dados que precisa de obter."
     },
     form: {
       name: "Nome",
