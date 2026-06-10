@@ -24,8 +24,8 @@ const translations = {
     },
     services: {
       eyebrow: "Servicios",
-      title: "Soluciones de captura de datos con drones",
-      intro: "Una oferta inicial centrada en aplicaciones donde la inspección aérea aporta rapidez, trazabilidad y valor técnico.",
+      title: "Soluciones de captura y análisis de datos geoespaciales",
+      intro: "Servicios técnicos para transformar observación aérea, cartografía, imágenes satelitales y datos territoriales en información útil.",
       photovoltaic: {
         title: "Energía",
         text: "Inspecciones térmicas y visuales para plantas solares, identificación de anomalías, documentación técnica y apoyo a mantenimiento."
@@ -37,6 +37,10 @@ const translations = {
       research: {
         title: "Investigación, medio natural y medio urbano",
         text: "Apoyo a universidades, centros de investigación y entidades ambientales mediante toma de datos en campo, ortofotografía y productos geoespaciales, especialmente enfocados en imagen térmica."
+      },
+      geospatial: {
+        title: "Consultoría GIS e inteligencia espacial",
+        text: "Integración, análisis y automatización de datos geográficos, imágenes de satélite y cartografía para convertir información territorial dispersa en entregables claros y accionables."
       }
     },
     methodology: {
@@ -71,6 +75,7 @@ const translations = {
       serviceEnergy: "Energía",
       serviceIndustrial: "Inspección industrial e infraestructuras",
       serviceResearch: "Investigación / medio natural / medio urbano",
+      serviceGeospatial: "Consultoría GIS e inteligencia espacial",
       serviceOther: "Otro"
     },
     footer: {
@@ -103,8 +108,8 @@ const translations = {
     },
     services: {
       eyebrow: "Serveis",
-      title: "Solucions de captura de dades amb drons",
-      intro: "Una oferta inicial centrada en aplicacions on la inspecció aèria aporta rapidesa, traçabilitat i valor tècnic.",
+      title: "Solucions de captura i anàlisi de dades geoespacials",
+      intro: "Serveis tècnics per transformar observació aèria, cartografia, imatges satel·litals i dades territorials en informació útil.",
       photovoltaic: {
         title: "Energia",
         text: "Inspeccions tèrmiques i visuals per a plantes solars, identificació d’anomalies, documentació tècnica i suport al manteniment."
@@ -116,6 +121,10 @@ const translations = {
       research: {
         title: "Recerca, medi natural i medi urbà",
         text: "Suport a universitats, centres de recerca i entitats ambientals mitjançant presa de dades al camp, ortofotografia i productes geoespacials, especialment enfocats en imatge tèrmica."
+      },
+      geospatial: {
+        title: "Consultoria GIS i intel·ligència espacial",
+        text: "Integració, anàlisi i automatització de dades geogràfiques, imatges de satèl·lit i cartografia per convertir informació territorial dispersa en entregables clars i accionables."
       }
     },
     methodology: {
@@ -150,6 +159,7 @@ const translations = {
       serviceEnergy: "Energia",
       serviceIndustrial: "Inspecció industrial i infraestructures",
       serviceResearch: "Recerca / medi natural / medi urbà",
+      serviceGeospatial: "Consultoria GIS i intel·ligència espacial",
       serviceOther: "Altres"
     },
     footer: {
@@ -182,8 +192,8 @@ const translations = {
     },
     services: {
       eyebrow: "Services",
-      title: "Drone-based data capture solutions",
-      intro: "An initial service offer focused on applications where aerial inspection provides speed, traceability and technical value.",
+      title: "Geospatial data capture and analysis solutions",
+      intro: "Technical services to turn aerial observation, cartography, satellite imagery and territorial data into useful information.",
       photovoltaic: {
         title: "Energy",
         text: "Thermal and visual inspections for solar plants, anomaly identification, technical documentation and maintenance support."
@@ -195,6 +205,10 @@ const translations = {
       research: {
         title: "Research, natural environment and urban environment",
         text: "Support for universities, research centres and environmental organisations through field data capture, orthophotography and geospatial products, especially focused on thermal imagery."
+      },
+      geospatial: {
+        title: "GIS consulting and spatial intelligence",
+        text: "Integration, analysis and automation of geographic data, satellite imagery and cartography to turn scattered territorial information into clear, actionable deliverables."
       }
     },
     methodology: {
@@ -229,6 +243,7 @@ const translations = {
       serviceEnergy: "Energy",
       serviceIndustrial: "Industrial inspection and infrastructure",
       serviceResearch: "Research / natural environment / urban environment",
+      serviceGeospatial: "GIS consulting and spatial intelligence",
       serviceOther: "Other"
     },
     footer: {
@@ -261,8 +276,8 @@ const translations = {
     },
     services: {
       eyebrow: "Services",
-      title: "Solutions d’acquisition de données par drone",
-      intro: "Une offre initiale centrée sur les applications où l’inspection aérienne apporte rapidité, traçabilité et valeur technique.",
+      title: "Solutions d’acquisition et d’analyse de données géospatiales",
+      intro: "Services techniques pour transformer l’observation aérienne, la cartographie, l’imagerie satellitaire et les données territoriales en information utile.",
       photovoltaic: {
         title: "Énergie",
         text: "Inspections thermiques et visuelles de centrales solaires, identification d’anomalies, documentation technique et appui à la maintenance."
@@ -274,6 +289,10 @@ const translations = {
       research: {
         title: "Recherche, environnement naturel et environnement urbain",
         text: "Appui aux universités, centres de recherche et organismes environnementaux par l’acquisition de données terrain, l’orthophotographie et les produits géospatiaux, avec un accent particulier sur l’imagerie thermique."
+      },
+      geospatial: {
+        title: "Conseil SIG et intelligence spatiale",
+        text: "Intégration, analyse et automatisation de données géographiques, d’imagerie satellite et de cartographie afin de transformer des informations territoriales dispersées en livrables clairs et exploitables."
       }
     },
     methodology: {
@@ -308,6 +327,7 @@ const translations = {
       serviceEnergy: "Énergie",
       serviceIndustrial: "Inspection industrielle et infrastructures",
       serviceResearch: "Recherche / environnement naturel / environnement urbain",
+      serviceGeospatial: "Conseil SIG et intelligence spatiale",
       serviceOther: "Autre"
     },
     footer: {
@@ -340,8 +360,8 @@ const translations = {
     },
     services: {
       eyebrow: "Serviços",
-      title: "Soluções de aquisição de dados com drones",
-      intro: "Uma oferta inicial centrada em aplicações onde a inspeção aérea proporciona rapidez, rastreabilidade e valor técnico.",
+      title: "Soluções de aquisição e análise de dados geoespaciais",
+      intro: "Serviços técnicos para transformar observação aérea, cartografia, imagens de satélite e dados territoriais em informação útil.",
       photovoltaic: {
         title: "Energia",
         text: "Inspeções térmicas e visuais para centrais solares, identificação de anomalias, documentação técnica e apoio à manutenção."
@@ -353,6 +373,10 @@ const translations = {
       research: {
         title: "Investigação, meio natural e meio urbano",
         text: "Apoio a universidades, centros de investigação e entidades ambientais através da aquisição de dados no terreno, ortofotografia e produtos geoespaciais, com especial enfoque em imagem térmica."
+      },
+      geospatial: {
+        title: "Consultoria SIG e inteligência espacial",
+        text: "Integração, análise e automatização de dados geográficos, imagens de satélite e cartografia para converter informação territorial dispersa em entregáveis claros e acionáveis."
       }
     },
     methodology: {
@@ -387,6 +411,7 @@ const translations = {
       serviceEnergy: "Energia",
       serviceIndustrial: "Inspeção industrial e infraestruturas",
       serviceResearch: "Investigação / meio natural / meio urbano",
+      serviceGeospatial: "Consultoria SIG e inteligência espacial",
       serviceOther: "Outro"
  },
     footer: {
