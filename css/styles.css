@@ -15,6 +15,11 @@
 
   --header-expanded-height: 320px;
   --header-compact-height: 72px;
+
+  --font-brand: "Comfortaa", system-ui, sans-serif;
+  --font-body: "B612", "Atkinson Hyperlegible", sans-serif;
+  --font-readable: "Atkinson Hyperlegible", "B612", sans-serif;
+  --font-technical: "Iosevka Aile", "Iosevka", "B612 Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
 }
 
 /* Base */
@@ -22,7 +27,47 @@
 body {
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-body);
+}
+
+code,
+pre,
+kbd,
+samp,
+table,
+thead,
+tbody,
+tfoot,
+.technical-id,
+.coordinates,
+.file-name,
+.file-reference,
+.data-reference,
+.machine-value {
+  font-family: var(--font-technical);
+}
+
+code,
+kbd,
+samp,
+.technical-id,
+.coordinates,
+.file-name,
+.file-reference,
+.data-reference,
+.machine-value {
+  font-size: 0.96em;
+  letter-spacing: 0;
+}
+
+pre {
+  overflow-x: auto;
+  line-height: 1.65;
+}
+
+.high-legibility,
+.legal-content {
+  font-family: var(--font-readable);
 }
 
 a {
@@ -159,7 +204,7 @@ main {
 }
 
 .logo {
-  font-family: "Comfortaa", system-ui, sans-serif;
+  font-family: var(--font-brand);
   color: #ffffff;
   text-align: center;
   transition: color 0.45s ease;
@@ -498,6 +543,7 @@ main {
 
 .about-highlights span {
   color: var(--color-accent);
+  font-family: var(--font-technical);
   font-size: 0.88rem;
   font-weight: 700;
   letter-spacing: 0.04em;
