@@ -26,17 +26,41 @@ const translations = {
       eyebrow: "Servicios",
       title: "Soluciones de captura y análisis de datos geoespaciales",
       intro: "Servicios técnicos para transformar observación aérea, cartografía, imágenes satelitales y datos territoriales en información útil.",
+      common: {
+        more: "Ver servicios"
+      },
       photovoltaic: {
         title: "Energía",
-        text: "Inspecciones térmicas y visuales para plantas solares, identificación de anomalías, documentación técnica y apoyo a mantenimiento."
+        text: "Inspección aérea para localizar anomalías, evaluar el estado de la planta y priorizar actuaciones de mantenimiento.",
+        tag1: "Termografía de módulos",
+        tag2: "Inspección visual RGB",
+        tag3: "Ortofoto e inventario",
+        tag4: "Drenajes y obra civil",
+        tag5: "Seguimiento periódico",
+        tag6: "Integración GIS/GMAO",
+        details: "Detectamos puntos calientes, daños visibles, suciedad, vegetación y problemas de drenaje. Los resultados se entregan georreferenciados mediante informes, mapas de incidencias y datos compatibles con los sistemas del cliente."
       },
       industrial: {
         title: "Inspección industrial e infraestructuras",
-        text: "Captura de imágenes RGB y térmicas para infraestructuras, cubiertas, instalaciones industriales, activos energéticos y zonas de difícil acceso."
+        text: "Inspección visual, térmica y cartográfica de instalaciones, estructuras y activos de difícil acceso.",
+        tag1: "Inspección RGB",
+        tag2: "Termografía industrial",
+        tag3: "Cubiertas y estructuras",
+        tag4: "Fotogrametría",
+        tag5: "Incidencias georreferenciadas",
+        tag6: "Integración GIS/CAD/GMAO",
+        details: "Documentamos cubiertas, equipos elevados, instalaciones energéticas y zonas de acceso complejo, reduciendo la exposición del personal y generando evidencias trazables para mantenimiento e ingeniería."
       },
       research: {
-        title: "Investigación, medio natural y medio urbano",
-        text: "Apoyo a universidades, centros de investigación y entidades ambientales mediante toma de datos en campo, ortofotografía y productos geoespaciales, especialmente enfocados en imagen térmica."
+        title: "Medio ambiente y gestión del territorio",
+        text: "Termografía aérea, imagen RGB y cartografía para observar, diagnosticar y realizar seguimiento del medio natural.",
+        tag1: "Seguimiento de fauna",
+        tag2: "Gestión forestal",
+        tag3: "Vigilancia ambiental",
+        tag4: "Restauración ecológica",
+        tag5: "Humedales y riberas",
+        tag6: "Apoyo ambiental a obras",
+        details: "Localizamos indicios y anomalías, priorizamos inspecciones y documentamos cambios en fauna, vegetación, masas de agua, zonas restauradas y áreas forestales."
       },
       geospatial: {
         title: "Consultoría GIS e inteligencia espacial",
@@ -74,7 +98,7 @@ const translations = {
       servicePlaceholder: "Selecciona una opción",
       serviceEnergy: "Energía",
       serviceIndustrial: "Inspección industrial e infraestructuras",
-      serviceResearch: "Investigación / medio natural / medio urbano",
+      serviceResearch: "Medio ambiente y gestión del territorio",
       serviceGeospatial: "Consultoría GIS e inteligencia espacial",
       serviceOther: "Otro"
     },
@@ -110,17 +134,41 @@ const translations = {
       eyebrow: "Serveis",
       title: "Solucions de captura i anàlisi de dades geoespacials",
       intro: "Serveis tècnics per transformar observació aèria, cartografia, imatges satel·litals i dades territorials en informació útil.",
+      common: {
+        more: "Veure serveis"
+      },
       photovoltaic: {
         title: "Energia",
-        text: "Inspeccions tèrmiques i visuals per a plantes solars, identificació d’anomalies, documentació tècnica i suport al manteniment."
+        text: "Inspecció aèria per localitzar anomalies, avaluar l’estat de la planta i prioritzar actuacions de manteniment.",
+        tag1: "Termografia de mòduls",
+        tag2: "Inspecció visual RGB",
+        tag3: "Ortofoto i inventari",
+        tag4: "Drenatges i obra civil",
+        tag5: "Seguiment periòdic",
+        tag6: "Integració GIS/GMAO",
+        details: "Detectem punts calents, danys visibles, brutícia, vegetació i problemes de drenatge. Els resultats es lliuren georeferenciats mitjançant informes, mapes d’incidències i dades compatibles amb els sistemes del client."
       },
       industrial: {
         title: "Inspecció industrial i infraestructures",
-        text: "Captura d’imatges RGB i tèrmiques per a infraestructures, cobertes, instal·lacions industrials, actius energètics i zones de difícil accés."
+        text: "Inspecció visual, tèrmica i cartogràfica d’instal·lacions, estructures i actius de difícil accés.",
+        tag1: "Inspecció RGB",
+        tag2: "Termografia industrial",
+        tag3: "Cobertes i estructures",
+        tag4: "Fotogrametria",
+        tag5: "Incidències georeferenciades",
+        tag6: "Integració GIS/CAD/GMAO",
+        details: "Documentem cobertes, equips elevats, instal·lacions energètiques i zones d’accés complex, reduint l’exposició del personal i generant evidències traçables per a manteniment i enginyeria."
       },
       research: {
-        title: "Recerca, medi natural i medi urbà",
-        text: "Suport a universitats, centres de recerca i entitats ambientals mitjançant presa de dades al camp, ortofotografia i productes geoespacials, especialment enfocats en imatge tèrmica."
+        title: "Medi ambient i gestió del territori",
+        text: "Termografia aèria, imatge RGB i cartografia per observar, diagnosticar i fer seguiment del medi natural.",
+        tag1: "Seguiment de fauna",
+        tag2: "Gestió forestal",
+        tag3: "Vigilància ambiental",
+        tag4: "Restauració ecològica",
+        tag5: "Aiguamolls i riberes",
+        tag6: "Suport ambiental a obres",
+        details: "Localitzem indicis i anomalies, prioritzem inspeccions i documentem canvis en fauna, vegetació, masses d’aigua, zones restaurades i àrees forestals."
       },
       geospatial: {
         title: "Consultoria GIS i intel·ligència espacial",
@@ -158,7 +206,7 @@ const translations = {
       servicePlaceholder: "Selecciona una opció",
       serviceEnergy: "Energia",
       serviceIndustrial: "Inspecció industrial i infraestructures",
-      serviceResearch: "Recerca / medi natural / medi urbà",
+      serviceResearch: "Medi ambient i gestió del territori",
       serviceGeospatial: "Consultoria GIS i intel·ligència espacial",
       serviceOther: "Altres"
     },
@@ -194,17 +242,41 @@ const translations = {
       eyebrow: "Services",
       title: "Geospatial data capture and analysis solutions",
       intro: "Technical services to turn aerial observation, cartography, satellite imagery and territorial data into useful information.",
+      common: {
+        more: "View services"
+      },
       photovoltaic: {
         title: "Energy",
-        text: "Thermal and visual inspections for solar plants, anomaly identification, technical documentation and maintenance support."
+        text: "Aerial inspection to locate anomalies, assess plant condition and prioritise maintenance work.",
+        tag1: "Module thermography",
+        tag2: "RGB visual inspection",
+        tag3: "Orthophoto and inventory",
+        tag4: "Drainage and civil works",
+        tag5: "Periodic monitoring",
+        tag6: "GIS/CMMS integration",
+        details: "We detect hot spots, visible damage, soiling, vegetation and drainage issues. Results are delivered as georeferenced reports, incident maps and data compatible with the client’s systems."
       },
       industrial: {
         title: "Industrial inspection and infrastructure",
-        text: "RGB and thermal image capture for infrastructure, roofs, industrial facilities, energy assets and hard-to-access areas."
+        text: "Visual, thermal and cartographic inspection of facilities, structures and hard-to-access assets.",
+        tag1: "RGB inspection",
+        tag2: "Industrial thermography",
+        tag3: "Roofs and structures",
+        tag4: "Photogrammetry",
+        tag5: "Georeferenced incidents",
+        tag6: "GIS/CAD/CMMS integration",
+        details: "We document roofs, elevated equipment, energy facilities and complex access areas, reducing personnel exposure and producing traceable evidence for maintenance and engineering."
       },
       research: {
-        title: "Research, natural environment and urban environment",
-        text: "Support for universities, research centres and environmental organisations through field data capture, orthophotography and geospatial products, especially focused on thermal imagery."
+        title: "Environment and land management",
+        text: "Aerial thermography, RGB imagery and mapping to observe, diagnose and monitor the natural environment.",
+        tag1: "Wildlife monitoring",
+        tag2: "Forest management",
+        tag3: "Environmental surveillance",
+        tag4: "Ecological restoration",
+        tag5: "Wetlands and riverbanks",
+        tag6: "Environmental support for works",
+        details: "We locate signs and anomalies, prioritise inspections and document changes in wildlife, vegetation, water bodies, restored sites and forest areas."
       },
       geospatial: {
         title: "GIS consulting and spatial intelligence",
@@ -242,7 +314,7 @@ const translations = {
       servicePlaceholder: "Select an option",
       serviceEnergy: "Energy",
       serviceIndustrial: "Industrial inspection and infrastructure",
-      serviceResearch: "Research / natural environment / urban environment",
+      serviceResearch: "Environment and land management",
       serviceGeospatial: "GIS consulting and spatial intelligence",
       serviceOther: "Other"
     },
@@ -278,17 +350,41 @@ const translations = {
       eyebrow: "Services",
       title: "Solutions d’acquisition et d’analyse de données géospatiales",
       intro: "Services techniques pour transformer l’observation aérienne, la cartographie, l’imagerie satellitaire et les données territoriales en information utile.",
+      common: {
+        more: "Voir les services"
+      },
       photovoltaic: {
         title: "Énergie",
-        text: "Inspections thermiques et visuelles de centrales solaires, identification d’anomalies, documentation technique et appui à la maintenance."
+        text: "Inspection aérienne pour localiser les anomalies, évaluer l’état de la centrale et prioriser les opérations de maintenance.",
+        tag1: "Thermographie des modules",
+        tag2: "Inspection visuelle RGB",
+        tag3: "Orthophoto et inventaire",
+        tag4: "Drainage et génie civil",
+        tag5: "Suivi périodique",
+        tag6: "Intégration SIG/GMAO",
+        details: "Nous détectons les points chauds, dommages visibles, salissures, végétation et problèmes de drainage. Les résultats sont livrés sous forme de rapports géoréférencés, cartes d’incidents et données compatibles avec les systèmes du client."
       },
       industrial: {
         title: "Inspection industrielle et infrastructures",
-        text: "Acquisition d’images RGB et thermiques pour infrastructures, toitures, installations industrielles, actifs énergétiques et zones difficiles d’accès."
+        text: "Inspection visuelle, thermique et cartographique des installations, structures et actifs difficiles d’accès.",
+        tag1: "Inspection RGB",
+        tag2: "Thermographie industrielle",
+        tag3: "Toitures et structures",
+        tag4: "Photogrammétrie",
+        tag5: "Incidents géoréférencés",
+        tag6: "Intégration SIG/CAO/GMAO",
+        details: "Nous documentons les toitures, équipements en hauteur, installations énergétiques et zones d’accès complexe, en réduisant l’exposition du personnel et en produisant des preuves traçables pour la maintenance et l’ingénierie."
       },
       research: {
-        title: "Recherche, environnement naturel et environnement urbain",
-        text: "Appui aux universités, centres de recherche et organismes environnementaux par l’acquisition de données terrain, l’orthophotographie et les produits géospatiaux, avec un accent particulier sur l’imagerie thermique."
+        title: "Environnement et gestion du territoire",
+        text: "Thermographie aérienne, imagerie RGB et cartographie pour observer, diagnostiquer et suivre le milieu naturel.",
+        tag1: "Suivi de la faune",
+        tag2: "Gestion forestière",
+        tag3: "Surveillance environnementale",
+        tag4: "Restauration écologique",
+        tag5: "Zones humides et berges",
+        tag6: "Appui environnemental aux travaux",
+        details: "Nous localisons les indices et anomalies, priorisons les inspections et documentons les changements concernant la faune, la végétation, les masses d’eau, les sites restaurés et les zones forestières."
       },
       geospatial: {
         title: "Conseil SIG et intelligence spatiale",
@@ -326,7 +422,7 @@ const translations = {
       servicePlaceholder: "Sélectionnez une option",
       serviceEnergy: "Énergie",
       serviceIndustrial: "Inspection industrielle et infrastructures",
-      serviceResearch: "Recherche / environnement naturel / environnement urbain",
+      serviceResearch: "Environnement et gestion du territoire",
       serviceGeospatial: "Conseil SIG et intelligence spatiale",
       serviceOther: "Autre"
     },
@@ -362,17 +458,41 @@ const translations = {
       eyebrow: "Serviços",
       title: "Soluções de aquisição e análise de dados geoespaciais",
       intro: "Serviços técnicos para transformar observação aérea, cartografia, imagens de satélite e dados territoriais em informação útil.",
+      common: {
+        more: "Ver serviços"
+      },
       photovoltaic: {
         title: "Energia",
-        text: "Inspeções térmicas e visuais para centrais solares, identificação de anomalias, documentação técnica e apoio à manutenção."
+        text: "Inspeção aérea para localizar anomalias, avaliar o estado da central e priorizar ações de manutenção.",
+        tag1: "Termografia de módulos",
+        tag2: "Inspeção visual RGB",
+        tag3: "Ortofoto e inventário",
+        tag4: "Drenagens e obra civil",
+        tag5: "Acompanhamento periódico",
+        tag6: "Integração SIG/GMAO",
+        details: "Detetamos pontos quentes, danos visíveis, sujidade, vegetação e problemas de drenagem. Os resultados são entregues georreferenciados através de relatórios, mapas de incidências e dados compatíveis com os sistemas do cliente."
       },
       industrial: {
         title: "Inspeção industrial e infraestruturas",
-        text: "Aquisição de imagens RGB e térmicas para infraestruturas, coberturas, instalações industriais, ativos energéticos e zonas de difícil acesso."
+        text: "Inspeção visual, térmica e cartográfica de instalações, estruturas e ativos de difícil acesso.",
+        tag1: "Inspeção RGB",
+        tag2: "Termografia industrial",
+        tag3: "Coberturas e estruturas",
+        tag4: "Fotogrametria",
+        tag5: "Incidências georreferenciadas",
+        tag6: "Integração SIG/CAD/GMAO",
+        details: "Documentamos coberturas, equipamentos elevados, instalações energéticas e zonas de acesso complexo, reduzindo a exposição do pessoal e produzindo evidências rastreáveis para manutenção e engenharia."
       },
       research: {
-        title: "Investigação, meio natural e meio urbano",
-        text: "Apoio a universidades, centros de investigação e entidades ambientais através da aquisição de dados no terreno, ortofotografia e produtos geoespaciais, com especial enfoque em imagem térmica."
+        title: "Ambiente e gestão do território",
+        text: "Termografia aérea, imagem RGB e cartografia para observar, diagnosticar e acompanhar o meio natural.",
+        tag1: "Acompanhamento de fauna",
+        tag2: "Gestão florestal",
+        tag3: "Vigilância ambiental",
+        tag4: "Restauração ecológica",
+        tag5: "Zonas húmidas e margens",
+        tag6: "Apoio ambiental a obras",
+        details: "Localizamos indícios e anomalias, priorizamos inspeções e documentamos alterações na fauna, vegetação, massas de água, zonas restauradas e áreas florestais."
       },
       geospatial: {
         title: "Consultoria SIG e inteligência espacial",
@@ -410,7 +530,7 @@ const translations = {
       servicePlaceholder: "Selecione uma opção",
       serviceEnergy: "Energia",
       serviceIndustrial: "Inspeção industrial e infraestruturas",
-      serviceResearch: "Investigação / meio natural / meio urbano",
+      serviceResearch: "Ambiente e gestão do território",
       serviceGeospatial: "Consultoria SIG e inteligência espacial",
       serviceOther: "Outro"
  },
