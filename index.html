@@ -427,12 +427,17 @@
 
         <form
           class="contact-form"
-          action="https://formspree.io/f/mrejkwwr"
+          action="/api/contact"
           method="POST"
         >
-          <input type="hidden" name="_subject" value="Nuevo contacto desde GeoRMe" />
-          <input type="hidden" name="_language" value="auto" />
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+          <input
+            type="text"
+            name="website"
+            class="form-honeypot"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
 
           <div class="form-row">
             <label for="name" data-i18n="form.name">Nombre</label>
@@ -447,6 +452,17 @@
           </div>
 
           <div class="form-row">
+            <label for="company" data-i18n="form.company">Empresa (opcional)</label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              maxlength="120"
+              autocomplete="organization"
+            />
+          </div>
+
+          <div class="form-row">
             <label for="email" data-i18n="form.email">Email</label>
             <input
               id="email"
@@ -454,6 +470,17 @@
               type="email"
               maxlength="120"
               required
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="phone" data-i18n="form.phone">Teléfono (opcional)</label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              maxlength="40"
+              autocomplete="tel"
             />
           </div>
 
@@ -496,6 +523,8 @@
           <button type="submit" class="btn btn-primary" data-i18n="form.submit">
             Enviar consulta
           </button>
+
+          <p class="form-status" role="status" aria-live="polite" hidden></p>
 
           <p class="form-note" data-i18n="form.note">
             Al enviar este formulario aceptas que tus datos sean utilizados únicamente

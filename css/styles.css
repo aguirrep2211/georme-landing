@@ -751,6 +751,33 @@ textarea {
   font-size: 0.85rem;
 }
 
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact-form button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.form-status {
+  margin-top: 16px;
+  font-weight: 700;
+}
+
+.form-status.is-success {
+  color: #236b43;
+}
+
+.form-status.is-error {
+  color: #a83232;
+}
+
 /* Footer */
 
 .site-footer {

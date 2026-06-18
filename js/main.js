@@ -58,6 +58,11 @@ function setLanguage(lang) {
   });
 }
 
+function getCurrentTranslation(key, fallback) {
+  const lang = document.documentElement.lang || "en";
+  return getNestedTranslation(translations[lang] || translations.en, key) || fallback;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   updateHeaderState();
 
@@ -109,66 +114,67 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      const message = document.querySelector("#message");
+      const message = form.querySelector("#message");
+      const submitButton = form.querySelector('[type="submit"]');
+      const status = form.querySelector(".form-status");
 
       if (message.value.trim().length < 20) {
-        alert("Please provide a more detailed message.");
+        status.textContent = getCurrentTranslation(
+          "form.messageTooShort",
+          "Please provide a more detailed message."
+        );
+        status.className = "form-status is-error";
+        status.hidden = false;
         return;
       }
 
       const formData = new FormData(form);
       const payload = {
-        name: formData.get("name") || "",
-        company: formData.get("company") || "",
-        email: formData.get("email") || "",
-        phone: formData.get("phone") || "",
-        service: formData.get("service") || "",
-        message: formData.get("message") || "",
-        source: "web_georme"
+        name: String(formData.get("name") || "").trim(),
+        company: String(formData.get("company") || "").trim(),
+        email: String(formData.get("email") || "").trim(),
+        phone: String(formData.get("phone") || "").trim(),
+        service: String(formData.get("service") || "").trim(),
+        message: String(formData.get("message") || "").trim(),
+        website: String(formData.get("website") || ""),
+        language: document.documentElement.lang || "en"
       };
 
-      // Future Turnstile token can be added to formData and payload here.
-      let emailResponse;
+      submitButton.disabled = true;
+      status.textContent = getCurrentTranslation("form.sending", "Sending…");
+      status.className = "form-status";
+      status.hidden = false;
 
       try {
-        emailResponse = await fetch(form.action, {
+        const response = await fetch(form.action, {
           method: form.method,
           headers: {
-            Accept: "application/json"
+            Accept: "application/json",
+            "Content-Type": "application/json"
           },
-          body: formData
+          body: JSON.stringify(payload)
         });
-      } catch (error) {
-        alert("There was a problem sending your message. Please try again.");
-        return;
-      }
 
-      if (!emailResponse.ok) {
-        alert("There was a problem sending your message. Please try again.");
-        return;
-      }
-
-      const sendLeadToOdoo = async () => {
-        try {
-          const odooResponse = await fetch("https://api.georme.com/contact", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload)
-          });
-
-          if (!odooResponse.ok) {
-            console.warn("Odoo contact API request failed.", odooResponse.status);
-          }
-        } catch (error) {
-          console.warn("Odoo contact API request failed.", error);
+        if (!response.ok) {
+          throw new Error(`Contact API returned ${response.status}`);
         }
-      };
 
-      form.reset();
-      void sendLeadToOdoo();
-      alert("Message sent successfully.");
+        form.reset();
+        status.textContent = getCurrentTranslation(
+          "form.success",
+          "Message sent successfully."
+        );
+        status.className = "form-status is-success";
+      } catch (error) {
+        console.warn("Contact request failed.", error);
+        status.textContent = getCurrentTranslation(
+          "form.error",
+          "There was a problem sending your message. Please try again."
+        );
+        status.className = "form-status is-error";
+      } finally {
+        submitButton.disabled = false;
+      }
     });
   }
 

@@ -6,10 +6,13 @@ Thumbs.db
 node_modules/
 dist/
 build/
+deploy/.env
 
 # Archivos temporales
 *.tmp
 *.log
+__pycache__/
+*.py[cod]
 
 # Vídeos originales pesados
 assets/videos/*uhd*.mp4
