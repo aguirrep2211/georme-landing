@@ -63,33 +63,59 @@ function getCurrentTranslation(key, fallback) {
   return getNestedTranslation(translations[lang] || translations.en, key) || fallback;
 }
 
+const journey = {
+  startedAt: Date.now(),
+  viewedSections: new Set(),
+  maxScrollDepth: 0,
+  formStarted: false
+};
+
+function trackEvent(name, parameters = {}) {
+  if (!window.GeoRMeConsent || window.GeoRMeConsent.get() !== "accepted") return;
+  window.gtag("event", name, parameters);
+}
+
+function sanitizeAttributionValue(value) {
+  return String(value || "").trim().slice(0, 160);
+}
+
+function captureAttribution() {
+  const params = new URLSearchParams(window.location.search);
+
+  let referrer = "";
+  if (document.referrer) {
+    try {
+      const referrerUrl = new URL(document.referrer);
+      referrer = `${referrerUrl.hostname}${referrerUrl.pathname}`;
+    } catch (error) {
+      referrer = "";
+    }
+  }
+
+  return {
+    utm_source: sanitizeAttributionValue(params.get("utm_source")),
+    utm_medium: sanitizeAttributionValue(params.get("utm_medium")),
+    utm_campaign: sanitizeAttributionValue(params.get("utm_campaign")),
+    utm_content: sanitizeAttributionValue(params.get("utm_content")),
+    utm_term: sanitizeAttributionValue(params.get("utm_term")),
+    landing_page: window.location.pathname,
+    referrer
+  };
+}
+
+const attribution = captureAttribution();
+
 document.addEventListener("DOMContentLoaded", () => {
   updateHeaderState();
 
   const initialLang = detectInitialLanguage();
   setLanguage(initialLang);
 
-  const cookieBanner = document.querySelector("#cookieBanner");
-  const acceptCookiesButton = document.querySelector("#acceptCookies");
-
   document.querySelectorAll("[data-lang]").forEach((button) => {
     button.addEventListener("click", () => {
       setLanguage(button.dataset.lang);
+      trackEvent("language_change", { language: button.dataset.lang });
     });
-
-  if (cookieBanner && acceptCookiesButton) {
-  const cookiesAccepted = localStorage.getItem("georme-cookies-accepted");
-
-  if (!cookiesAccepted) {
-    cookieBanner.hidden = false;
-  }
-
-  acceptCookiesButton.addEventListener("click", () => {
-    localStorage.setItem("georme-cookies-accepted", "true");
-    cookieBanner.hidden = true;
-  });
-}
-
   });
 
   const menuToggle = document.querySelector(".menu-toggle");
@@ -108,9 +134,47 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  document.querySelectorAll('a[href="#contacto"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      trackEvent("contact_cta_click", { link_text: link.textContent.trim() });
+    });
+  });
+
+  document.querySelectorAll('a[href*="linkedin.com"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      trackEvent("linkedin_click", { destination: link.href });
+    });
+  });
+
+  const observedSections = document.querySelectorAll("main section");
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const sectionName = entry.target.id || "hero";
+      if (journey.viewedSections.has(sectionName)) return;
+
+      journey.viewedSections.add(sectionName);
+      trackEvent("section_view", { section_name: sectionName });
+    });
+  }, { threshold: 0.4 });
+
+  observedSections.forEach((section) => sectionObserver.observe(section));
+
   const form = document.querySelector(".contact-form");
 
   if (form) {
+    form.addEventListener("input", () => {
+      if (journey.formStarted) return;
+      journey.formStarted = true;
+      trackEvent("form_start", { form_name: "contact" });
+    });
+
+    form.querySelector("#service").addEventListener("change", (event) => {
+      trackEvent("service_interest", { service: event.target.value });
+    });
+
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
@@ -129,6 +193,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const formData = new FormData(form);
+      const analyticsAllowed =
+        window.GeoRMeConsent &&
+        window.GeoRMeConsent.get() === "accepted";
       const payload = {
         name: String(formData.get("name") || "").trim(),
         company: String(formData.get("company") || "").trim(),
@@ -137,7 +204,13 @@ document.addEventListener("DOMContentLoaded", () => {
         service: String(formData.get("service") || "").trim(),
         message: String(formData.get("message") || "").trim(),
         website: String(formData.get("website") || ""),
-        language: document.documentElement.lang || "en"
+        language: document.documentElement.lang || "en",
+        attribution,
+        engagement: analyticsAllowed ? {
+          viewed_sections: Array.from(journey.viewedSections),
+          max_scroll_depth: journey.maxScrollDepth,
+          seconds_on_page: Math.round((Date.now() - journey.startedAt) / 1000)
+        } : {}
       };
 
       submitButton.disabled = true;
@@ -160,6 +233,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         form.reset();
+        trackEvent("generate_lead", {
+          service: payload.service,
+          source: attribution.utm_source || "direct"
+        });
         status.textContent = getCurrentTranslation(
           "form.success",
           "Message sent successfully."
@@ -181,5 +258,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-window.addEventListener("scroll", updateHeaderState);
+window.addEventListener("scroll", () => {
+  updateHeaderState();
+  const scrollableHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+  if (scrollableHeight <= 0) return;
+
+  const depth = Math.min(
+    100,
+    Math.round((window.scrollY / scrollableHeight) * 100)
+  );
+  journey.maxScrollDepth = Math.max(journey.maxScrollDepth, depth);
+});
 window.addEventListener("touchmove", updateHeaderState);

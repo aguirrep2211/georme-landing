@@ -1,23 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-M7LPFRST');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4J16NWSTLE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-4J16NWSTLE');
-  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Política de cookies | GeoRMe</title>
@@ -37,10 +20,6 @@
   <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7LPFRST"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <main class="legal-page">
     <section class="section">
       <div class="section-header">
@@ -49,7 +28,8 @@
 
       <div class="legal-content">
         <p>
-          Este sitio web utiliza únicamente cookies y tecnologías técnicas necesarias para su funcionamiento.
+          Este sitio utiliza almacenamiento local técnico y, únicamente cuando el usuario
+          lo acepta, cookies analíticas para conocer de forma agregada cómo se utiliza la web.
         </p>
 
         <h2>Cookies técnicas</h2>
@@ -62,16 +42,24 @@
           <li>Funcionamiento básico del sitio web</li>
           <li>Seguridad y distribución de contenido mediante Cloudflare</li>
           <li>Almacenamiento local de preferencias de idioma</li>
+          <li>Guardar la elección de aceptar o rechazar la analítica</li>
         </ul>
 
-        <h2>Cookies de terceros</h2>
+        <h2>Cookies analíticas</h2>
 
         <p>
-          El sitio puede utilizar servicios técnicos proporcionados por terceros como Cloudflare o Formspree para garantizar el funcionamiento y la seguridad de la web y del formulario de contacto.
+          Si el usuario presta su consentimiento, se carga Google Analytics 4 para medir
+          páginas y secciones consultadas, interacciones relevantes, procedencia aproximada
+          de la visita y conversiones del formulario. Google Analytics no se carga antes de
+          aceptar.
+        </p>
+
+        <p>
+          Proveedor: Google Ireland Limited. Finalidad: análisis estadístico y mejora de la web.
+          La duración de las cookies depende de la configuración aplicada por Google Analytics.
         </p>
 
         <h2>Cookies publicitarias</h2>
-
         <p>
           Este sitio web no utiliza cookies publicitarias ni sistemas de seguimiento comercial o remarketing.
         </p>
@@ -79,10 +67,19 @@
         <h2>Gestión de cookies</h2>
 
         <p>
-          El usuario puede configurar su navegador para bloquear o eliminar cookies.
+          El usuario puede aceptar o rechazar las cookies analíticas desde el aviso inicial.
+          También puede cambiar posteriormente su elección borrando los datos del sitio en el
+          navegador o utilizando el botón siguiente:
+        </p>
+
+        <p>
+          <button type="button" class="btn btn-secondary" data-cookie-settings>
+            Configurar cookies
+          </button>
         </p>
       </div>
     </section>
   </main>
+  <script src="/js/consent.js"></script>
 </body>
 </html>

@@ -14,6 +14,18 @@ VALID_PAYLOAD = {
     "message": "Necesitamos analizar datos territoriales para un nuevo proyecto.",
     "language": "es",
     "website": "",
+    "attribution": {
+        "utm_source": "linkedin",
+        "utm_medium": "social",
+        "utm_campaign": "inspeccion_fotovoltaica",
+        "landing_page": "/",
+        "referrer": "linkedin.com/feed",
+    },
+    "engagement": {
+        "viewed_sections": ["hero", "servicios", "contacto"],
+        "max_scroll_depth": 82,
+        "seconds_on_page": 96,
+    },
 }
 
 
@@ -41,6 +53,15 @@ class ContactApiTests(unittest.TestCase):
         self.assertEqual(values["contact_name"], "Ada Lovelace")
         self.assertEqual(values["partner_name"], "Analytical Engines")
         self.assertIn("Consultoría GIS", values["name"])
+        self.assertEqual(values["priority"], "3")
+        self.assertIn("linkedin", values["description"])
+
+    def test_calculates_relevance_score(self):
+        contact = server.validate_payload(VALID_PAYLOAD)
+        score, reasons = server.calculate_lead_score(contact)
+
+        self.assertEqual(score, 75)
+        self.assertIn("Email corporativo (+20)", reasons)
 
     def test_escapes_message_html(self):
         payload = {**VALID_PAYLOAD, "message": "<script>alert('x')</script> proyecto válido"}

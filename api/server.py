@@ -19,6 +19,15 @@ LOGGER = logging.getLogger("georme-contact-api")
 
 MAX_BODY_BYTES = 16_384
 EMAIL_PATTERN = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+GENERIC_EMAIL_DOMAINS = {
+    "gmail.com",
+    "hotmail.com",
+    "outlook.com",
+    "yahoo.com",
+    "icloud.com",
+    "proton.me",
+    "protonmail.com",
+}
 ALLOWED_SERVICES = {
     "energia": "Energía",
     "industrial": "Inspección industrial e infraestructuras",
@@ -85,6 +94,63 @@ def clean_text(value, field, minimum=0, maximum=2000):
     return cleaned
 
 
+def clean_string_list(value, field, maximum_items=10):
+    if not isinstance(value, list) or len(value) > maximum_items:
+        raise ValidationError(f"Invalid {field}")
+
+    return [
+        clean_text(item, field, 1, 80)
+        for item in value
+    ]
+
+
+def validate_attribution(value):
+    if value is None:
+        value = {}
+    if not isinstance(value, dict):
+        raise ValidationError("Invalid attribution")
+
+    allowed_fields = (
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "utm_content",
+        "utm_term",
+        "landing_page",
+        "referrer",
+    )
+    return {
+        field: clean_text(value.get(field, ""), field, 0, 160)
+        for field in allowed_fields
+    }
+
+
+def validate_engagement(value):
+    if value is None:
+        value = {}
+    if not isinstance(value, dict):
+        raise ValidationError("Invalid engagement")
+
+    sections = clean_string_list(
+        value.get("viewed_sections", []),
+        "viewed_sections",
+    )
+    try:
+        scroll_depth = int(value.get("max_scroll_depth", 0))
+        seconds_on_page = int(value.get("seconds_on_page", 0))
+    except (TypeError, ValueError) as error:
+        raise ValidationError("Invalid engagement") from error
+
+    if not 0 <= scroll_depth <= 100 or not 0 <= seconds_on_page <= 86_400:
+        raise ValidationError("Invalid engagement")
+
+    return {
+        "viewed_sections": sections,
+        "max_scroll_depth": scroll_depth,
+        "seconds_on_page": seconds_on_page,
+    }
+
+
 def validate_payload(payload):
     if not isinstance(payload, dict):
         raise ValidationError("Invalid payload")
@@ -109,23 +175,68 @@ def validate_payload(payload):
         "service": service,
         "message": clean_text(payload.get("message", ""), "message", 20, 2000),
         "language": clean_text(payload.get("language", "en"), "language", 2, 10),
+        "attribution": validate_attribution(payload.get("attribution")),
+        "engagement": validate_engagement(payload.get("engagement")),
     }
+
+
+def calculate_lead_score(contact):
+    score = 15
+    reasons = ["Servicio concreto (+15)"]
+
+    email_domain = contact["email"].rsplit("@", 1)[-1]
+    if email_domain not in GENERIC_EMAIL_DOMAINS:
+        score += 20
+        reasons.append("Email corporativo (+20)")
+    if contact["company"]:
+        score += 20
+        reasons.append("Empresa indicada (+20)")
+    if len(contact["message"]) >= 120:
+        score += 15
+        reasons.append("Consulta detallada (+15)")
+    if contact["attribution"]["utm_campaign"]:
+        score += 10
+        reasons.append("Campaña identificada (+10)")
+    if len(contact["engagement"]["viewed_sections"]) >= 3:
+        score += 10
+        reasons.append("Interés en varias secciones (+10)")
+
+    return min(score, 100), reasons
 
 
 def build_lead_values(contact):
     service_name = ALLOWED_SERVICES[contact["service"]]
     message = html.escape(contact["message"]).replace("\n", "<br>")
+    attribution = contact["attribution"]
+    engagement = contact["engagement"]
+    score, score_reasons = calculate_lead_score(contact)
+    attribution_rows = "".join(
+        f"<li><strong>{html.escape(key)}:</strong> {html.escape(value)}</li>"
+        for key, value in attribution.items()
+        if value
+    ) or "<li>Acceso directo o atribución no disponible</li>"
+    sections = ", ".join(engagement["viewed_sections"]) or "No disponible"
+    score_rows = "".join(
+        f"<li>{html.escape(reason)}</li>"
+        for reason in score_reasons
+    )
     description = (
         f"<p><strong>Servicio:</strong> {html.escape(service_name)}</p>"
         f"<p><strong>Idioma:</strong> {html.escape(contact['language'])}</p>"
         f"<p><strong>Mensaje:</strong><br>{message}</p>"
+        f"<h3>Atribución web</h3><ul>{attribution_rows}</ul>"
+        f"<p><strong>Secciones vistas:</strong> {html.escape(sections)}<br>"
+        f"<strong>Profundidad máxima:</strong> {engagement['max_scroll_depth']}%<br>"
+        f"<strong>Tiempo en página:</strong> {engagement['seconds_on_page']} s</p>"
+        f"<h3>Puntuación inicial: {score}/100</h3><ul>{score_rows}</ul>"
     )
     values = {
-        "name": f"Web GeoRMe — {service_name} — {contact['name']}",
+        "name": f"[{score}/100] Web GeoRMe — {service_name} — {contact['name']}",
         "type": "opportunity",
         "contact_name": contact["name"],
         "email_from": contact["email"],
         "description": description,
+        "priority": "3" if score >= 60 else "2" if score >= 40 else "1",
     }
 
     if contact["company"]:
@@ -146,6 +257,12 @@ def build_lead_values(contact):
             values["team_id"] = int(team_id)
         except ValueError as error:
             raise ConfigurationError("ODOO_TEAM_ID must be an integer") from error
+
+    score_field = os.getenv("ODOO_SCORE_FIELD", "").strip()
+    if score_field:
+        if not re.fullmatch(r"x_[a-z0-9_]+", score_field):
+            raise ConfigurationError("ODOO_SCORE_FIELD must be a custom x_ field")
+        values[score_field] = score
 
     return values
 

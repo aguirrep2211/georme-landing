@@ -47,6 +47,25 @@ Deployment:
 `ODOO_SOURCE_ID` and `ODOO_TEAM_ID` are optional numeric IDs for routing web
 opportunities inside Odoo.
 
+`ODOO_SCORE_FIELD` can point to an optional numeric custom field (for example
+`x_studio_web_score`). Even without it, the calculated score is included in
+the opportunity title and description, and mapped to Odoo's priority.
+
+## Analytics and attribution
+
+Google Analytics 4 is loaded only after explicit analytics consent. The site
+tracks service and section interest, contact CTA clicks, form starts, successful
+leads, LinkedIn exits and language changes. UTM parameters are attached to the
+Odoo opportunity:
+
+```text
+https://georme.com/?utm_source=linkedin&utm_medium=social&utm_campaign=energia
+```
+
+Browsing engagement is attached to a contact request only when analytics
+consent was granted. Visitors can reject analytics or reopen their preferences
+from the footer or cookie policy.
+
 ---
 
 # Technologies

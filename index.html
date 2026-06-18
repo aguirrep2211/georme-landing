@@ -1,23 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-M7LPFRST');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4J16NWSTLE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-4J16NWSTLE');
-  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -99,10 +82,6 @@
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7LPFRST"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <header class="site-header expanded">
     <div class="header-video-wrapper">
       <video
@@ -544,6 +523,9 @@
       <a href="/legal.html">Aviso legal</a>
       <a href="/privacy.html">Privacidad</a>
       <a href="/cookies.html">Cookies</a>
+      <button type="button" class="footer-link-button" data-cookie-settings>
+        Configurar cookies
+      </button>
     </div>
 
     <div class="social-links" aria-label="LinkedIn">
@@ -572,17 +554,19 @@
 <div class="cookie-banner" id="cookieBanner" hidden>
   <div class="cookie-banner-content">
     <p>
-      Utilizamos cookies técnicas y almacenamiento local para mejorar el funcionamiento del sitio, como recordar el idioma seleccionado.
-      No usamos cookies publicitarias.
+      Utilizamos cookies analíticas de Google, únicamente con tu permiso,
+      para conocer el uso agregado de la web y mejorar nuestros servicios.
     </p>
 
     <div class="cookie-banner-actions">
       <a href="/cookies.html">Ver política</a>
-      <button type="button" id="acceptCookies">Aceptar</button>
+      <button type="button" class="cookie-secondary" data-cookie-reject>Rechazar</button>
+      <button type="button" data-cookie-accept>Aceptar</button>
     </div>
   </div>
 </div>
 
+  <script src="/js/consent.js"></script>
   <script src="/js/translations.js"></script>
   <script src="/js/main.js"></script>
 </body>
