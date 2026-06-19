@@ -50,11 +50,79 @@ function setLanguage(lang) {
 
     if (translatedText) {
       element.textContent = translatedText;
+    } else if (lang === "es" && element.dataset.i18nDefault) {
+      element.textContent = element.dataset.i18nDefault;
     }
   });
 
   document.querySelectorAll("[data-lang]").forEach((button) => {
     button.classList.toggle("active", button.dataset.lang === lang);
+  });
+
+  updateServiceCatalogs(lang);
+}
+
+function renderServiceCatalog(catalog) {
+  const areas = catalog.areas.map((area, index) => `
+    <section class="service-catalog-card">
+      <span class="service-catalog-card-number">0${index + 1}</span>
+      <h5>${area[0]}</h5>
+      <p>${area[1]}</p>
+      <ul>${area[2].split(";").map((item) => `<li>${item}</li>`).join("")}</ul>
+    </section>
+  `).join("");
+
+  const columns = catalog.columns.map((column) => `
+    <section>
+      <h5>${column[0]}</h5>
+      <ul>${column[1].split(";").map((item) => `<li>${item}</li>`).join("")}</ul>
+    </section>
+  `).join("");
+
+  return `
+    <div class="service-catalog-intro">
+      <p class="service-catalog-kicker">${catalog.kicker}</p>
+      <h4>${catalog.heading}</h4>
+      <p>${catalog.intro}</p>
+    </div>
+    <div class="service-catalog-areas">${areas}</div>
+    <section class="service-catalog-process">
+      <div>
+        <p class="service-catalog-kicker">${catalog.process[0]}</p>
+        <h4>${catalog.process[1]}</h4>
+        <p>${catalog.process[2]}</p>
+      </div>
+      <ol>${catalog.process[3].split(";").map((item) => `<li>${item}</li>`).join("")}</ol>
+    </section>
+    <div class="service-catalog-columns">${columns}</div>
+    <div class="service-catalog-closing">
+      <p>${catalog.closing}</p>
+      <a href="#contacto" class="btn btn-primary">${catalog.cta}</a>
+    </div>
+  `;
+}
+
+function updateServiceCatalogs(lang) {
+  ["photovoltaic", "industrial", "research"].forEach((service) => {
+    const details = document.querySelector(`.service-panel-${service} .service-catalog-details`);
+    if (!details) return;
+
+    const summary = details.querySelector("summary");
+    const content = details.querySelector(".service-catalog-content");
+
+    if (!details.dataset.defaultSummary) {
+      details.dataset.defaultSummary = summary.textContent.trim();
+      details.dataset.defaultContent = content.innerHTML;
+    }
+
+    const catalog = serviceCatalogTranslations?.[lang]?.[service];
+    if (catalog) {
+      summary.textContent = catalog.summary;
+      content.innerHTML = renderServiceCatalog(catalog);
+    } else {
+      summary.textContent = details.dataset.defaultSummary;
+      content.innerHTML = details.dataset.defaultContent;
+    }
   });
 }
 
@@ -107,6 +175,10 @@ const attribution = captureAttribution();
 
 document.addEventListener("DOMContentLoaded", () => {
   updateHeaderState();
+
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    element.dataset.i18nDefault = element.textContent.trim();
+  });
 
   const initialLang = detectInitialLanguage();
   setLanguage(initialLang);
