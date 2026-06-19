@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "georme-landing",
+  "compatibility_date": "2026-06-19",
+  "assets": {
+    "directory": "./.cloudflare-dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
