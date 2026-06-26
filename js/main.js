@@ -63,9 +63,8 @@ function setLanguage(lang) {
 }
 
 function renderServiceCatalog(catalog) {
-  const areas = catalog.areas.map((area, index) => `
+  const areas = catalog.areas.map((area) => `
     <section class="service-catalog-card">
-      <span class="service-catalog-card-number">0${index + 1}</span>
       <h5>${area[0]}</h5>
       <p>${area[1]}</p>
       <ul>${area[2].split(";").map((item) => `<li>${item}</li>`).join("")}</ul>
@@ -173,8 +172,30 @@ function captureAttribution() {
 
 const attribution = captureAttribution();
 
+function slowDownBackgroundVideos() {
+  document.querySelectorAll("video").forEach((video) => {
+    video.playbackRate = 0.55;
+  });
+}
+
+function syncServicePanelState(details) {
+  const panel = details.closest(".service-panel");
+  if (!panel) return;
+
+  panel.classList.toggle("has-open-catalog", details.open);
+}
+
+function initServicePanels() {
+  document.querySelectorAll(".service-catalog-details").forEach((details) => {
+    syncServicePanelState(details);
+    details.addEventListener("toggle", () => syncServicePanelState(details));
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   updateHeaderState();
+  slowDownBackgroundVideos();
+  initServicePanels();
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     element.dataset.i18nDefault = element.textContent.trim();

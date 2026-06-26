@@ -456,6 +456,7 @@ main {
   overflow: hidden;
   display: flex;
   align-items: center;
+  background: #07110c;
 }
 
 .service-video {
@@ -465,6 +466,9 @@ main {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transition:
+    height 0.45s ease,
+    opacity 0.45s ease;
 }
 
 .service-panel-overlay {
@@ -477,6 +481,9 @@ main {
       rgba(18, 35, 25, 0.54),
       rgba(18, 35, 25, 0.25)
     );
+  transition:
+    inset 0.45s ease,
+    background 0.45s ease;
 }
 
 .service-panel-content {
@@ -486,6 +493,37 @@ main {
   width: 100%;
   margin: 0 auto;
   padding: 72px 24px;
+  transition:
+    padding 0.45s ease,
+    background 0.45s ease;
+}
+
+.service-panel.has-open-catalog {
+  align-items: flex-start;
+  padding-bottom: 86px;
+}
+
+.service-panel.has-open-catalog .service-video {
+  top: auto;
+  height: 86px;
+  opacity: 1;
+}
+
+.service-panel.has-open-catalog .service-panel-overlay {
+  top: auto;
+  height: 86px;
+  opacity: 0;
+}
+
+.service-panel.has-open-catalog .service-panel-content {
+  background: rgba(7, 17, 12, 0.96);
+}
+
+.service-panel.has-open-catalog .service-panel-content > h3,
+.service-panel.has-open-catalog .service-panel-content > p,
+.service-panel.has-open-catalog .service-tags,
+.service-panel.has-open-catalog .service-details summary {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 .service-panel-content h3 {
@@ -567,7 +605,7 @@ main {
 .service-catalog-content {
   padding: clamp(24px, 4vw, 48px);
   border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(9, 21, 14, 0.88);
+  background: rgba(6, 14, 10, 0.94);
   color: #ffffff;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
   backdrop-filter: blur(12px);
@@ -623,12 +661,15 @@ main {
 }
 
 .service-catalog-card-number {
-  display: block;
-  margin-bottom: 18px;
-  color: #9fc7ad;
-  font-family: var(--font-technical);
-  font-size: 0.82rem;
-  font-weight: 700;
+  display: none;
+}
+
+.service-catalog-card h5 {
+  margin-bottom: 16px;
+  color: #ffffff;
+  font-size: clamp(1.28rem, 2vw, 1.65rem);
+  font-weight: 800;
+  line-height: 1.15;
 }
 
 .service-catalog-content ul {
